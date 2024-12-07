@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://clxydt5gox746"]
+
+[ext_resource type="Script" path="res://character/character_scripts/fsm_dwarf.gd" id="1_t810l"]
+[ext_resource type="Texture2D" uid="uid://cml0vpuenqu6v" path="res://icon.svg" id="1_tvy1d"]
+[ext_resource type="Script" path="res://core/fsm.gd" id="2_w5m14"]
+[ext_resource type="Script" path="res://character/character_scripts/states/run_state.gd" id="3_04jyo"]
+[ext_resource type="Script" path="res://character/character_scripts/states/idle_state.gd" id="4_reps1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1jnl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="fsmCharacter" type="CharacterBody2D" parent="."]
+script = ExtResource("1_t810l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fsmCharacter"]
+shape = SubResource("CapsuleShape2D_d1jnl")
+
+[node name="Sprite2De" type="Sprite2D" parent="fsmCharacter"]
+texture = ExtResource("1_tvy1d")
+
+[node name="FSM" type="Node" parent="fsmCharacter"]
+script = ExtResource("2_w5m14")
+
+[node name="run" type="Node" parent="fsmCharacter/FSM"]
+script = ExtResource("3_04jyo")
+
+[node name="idle" type="Node" parent="fsmCharacter/FSM"]
+script = ExtResource("4_reps1")
