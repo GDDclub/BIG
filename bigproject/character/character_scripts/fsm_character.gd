@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var input = InputManager.new()  
 
 # Facing direction of the character, initially set to the right
-const GRAVITY = 200.0
+const GRAVITY = 20.0
 const WALK_SPEED = 600
 
 func _ready():
@@ -17,6 +17,8 @@ func _ready():
 
 func _process(delta):
 	fsm.update(delta)
+	velocity.y -= GRAVITY*delta
+	print(self.position)
 	move_and_slide()
 
 
