@@ -10,13 +10,14 @@ extends CharacterBody2D
 
 # Facing direction of the character, initially set to the right
 const GRAVITY = 200.0
-const WALK_SPEED = 200
+const WALK_SPEED = 600
 
 func _ready():
 	fsm.change_state("idle")
 
 func _process(delta):
 	fsm.update(delta)
+	move_and_slide()
 
 
 func _physics_process(delta):
