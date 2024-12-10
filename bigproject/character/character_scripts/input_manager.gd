@@ -1,15 +1,9 @@
 class_name InputManager
 
-var x
-var y
-var normalized
-var raw
+var x = 0
+var raw = Vector2.ZERO
 
-
-func update(delta):
-	
+func update_input():
+	# Yatay eksen için giriş al
 	x = Input.get_axis("walk_left", "walk_right")
-	y = Input.get_axis("walk_up", "walk_down")
-	raw = Vector2(x, y)
-	normalized = raw.normalized()
-	
+	raw = Vector2(x, 0)  # Yatay eksende hareket
