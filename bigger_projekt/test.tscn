@@ -1,12 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu6ek7ht5dx3s"]
+[gd_scene load_steps=4 format=3 uid="uid://cu6ek7ht5dx3s"]
 
-[ext_resource type="Texture2D" uid="uid://bpd5nnyqqf8cl" path="res://icon.svg" id="1_h58an"]
+[ext_resource type="PackedScene" uid="uid://cqhove8n3noor" path="res://adam.tscn" id="1_c6u0q"]
+[ext_resource type="Script" path="res://adam.gd" id="2_mdtx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox8ty"]
+size = Vector2(1036, 156)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_c6u0q")]
+position = Vector2(167, 118)
+script = ExtResource("2_mdtx8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 
-[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("1_h58an")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(508, 427)
+shape = SubResource("RectangleShape2D_ox8ty")
