@@ -1,0 +1,4 @@
+res://main.tscn
+res://character/character_scripts/states/idle_state.gd
+res://character/character_scripts/states/run_state.gd
+res://character/Player.tscn
